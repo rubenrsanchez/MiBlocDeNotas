@@ -9,5 +9,6 @@ public class Nota {
     String titulo;
     Text texto;
     int idCategoria;
+    int a;
 
 }
