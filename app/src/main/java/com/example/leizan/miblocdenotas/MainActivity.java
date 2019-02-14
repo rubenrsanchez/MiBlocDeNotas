@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mainRV;
+    private NotasAdapter adapter;
     private ArrayList<Nota> notasList; // ArrayList de las notas guardadas
     private ArrayList<CategoriaNota> categoriasList; // ArrayList de todas las categorias creadas
 
@@ -35,14 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
         notasList = new ArrayList<>();
         categoriasList = new ArrayList<>();
-        mainRV = findViewById(R.id.rvMain);
-        mainRV.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        mainRV = findViewById(R.id.rvMain);
+        adapter = new NotasAdapter(this, notasList, categoriasList);
+        mainRV.setAdapter(adapter);
+        mainRV.setLayoutManager(new LinearLayoutManager(this));
+
         return true;
     }
 
