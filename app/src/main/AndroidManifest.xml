@@ -19,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityNota" />
+        <activity android:name=".ActivityNota2"></activity>
     </application>
 
 </manifest>

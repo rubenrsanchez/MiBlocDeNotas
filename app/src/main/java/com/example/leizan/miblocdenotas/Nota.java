@@ -4,7 +4,9 @@ import android.graphics.Color;
 
 import org.w3c.dom.Text;
 
-public class Nota {
+import java.io.Serializable;
+
+public class Nota implements Serializable {
     private String titulo;
     private String text;
     private CategoriaNota categoria;
