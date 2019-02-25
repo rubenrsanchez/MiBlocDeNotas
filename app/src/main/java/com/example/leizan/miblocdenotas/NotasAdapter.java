@@ -34,6 +34,7 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
 
     @Override
     public void onBindViewHolder(NotasAdapter.NotasViewHolder holder, int i) {
+        // en esta funcion se define la informacion de cada cardView
         Nota currentNota = notas.get(i);
         // Add the data to the view holder.
         holder.titulo.setText(currentNota.getTitulo());
@@ -54,18 +55,17 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
         public final TextView dateTime;
         final NotasAdapter adapter;
 
-        public NotasViewHolder(View itemView, NotasAdapter adapter){
+        public NotasViewHolder(View itemView, NotasAdapter adapter){ // se instancian los elementos de cada cardView
             super(itemView);
             titulo = itemView.findViewById(R.id.TVNota);
             dateTime = itemView.findViewById(R.id.tv_dateTime);
-
-
+            
             //titulo.setBackgroundColor(notas.get(getAdapterPosition()).getCategoria().getColor());
             this.adapter = adapter;
         }
         @Override
         public void onClick(View v) {
-
+            // onClick de cada cardView, la idea es que cuando se haga click se abra 'ActivityNota2' con la info de la nota cargada para poder editarla
         }
     }
 }
