@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHolder> {
 
@@ -34,7 +36,10 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
     public void onBindViewHolder(NotasAdapter.NotasViewHolder holder, int i) {
         Nota currentNota = notas.get(i);
         // Add the data to the view holder.
-        holder.titulo.setText(currentNota.getText());
+        holder.titulo.setText(currentNota.getTitulo());
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        holder.dateTime.setText(sdf.format(currentNota.getCalendar().getTime()));
+
 
     }
 
@@ -46,11 +51,16 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
     class NotasViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TextView titulo;
+        public final TextView dateTime;
         final NotasAdapter adapter;
 
         public NotasViewHolder(View itemView, NotasAdapter adapter){
             super(itemView);
             titulo = itemView.findViewById(R.id.TVNota);
+            dateTime = itemView.findViewById(R.id.tv_dateTime);
+
+
+            //titulo.setBackgroundColor(notas.get(getAdapterPosition()).getCategoria().getColor());
             this.adapter = adapter;
         }
         @Override
