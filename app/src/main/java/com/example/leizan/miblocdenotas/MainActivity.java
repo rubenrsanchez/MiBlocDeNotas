@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode){
             case 1:
                 if(resultCode == Activity.RESULT_OK){
-                    //notasList = (ArrayList<Nota>)data.getExtras().getSerializable("notas");
                     notasList.add((Nota)data.getSerializableExtra("nota"));
                     adapter.notifyDataSetChanged();
                 }
