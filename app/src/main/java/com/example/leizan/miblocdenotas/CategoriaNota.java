@@ -1,6 +1,8 @@
 package com.example.leizan.miblocdenotas;
 
-public class CategoriaNota {
+import java.io.Serializable;
+
+public class CategoriaNota implements Serializable {
     private int id;
     private String nombre;
     private int color;

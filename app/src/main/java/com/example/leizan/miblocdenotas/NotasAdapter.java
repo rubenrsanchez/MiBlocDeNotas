@@ -35,6 +35,7 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
         Nota currentNota = notas.get(i);
         // Add the data to the view holder.
         holder.titulo.setText(currentNota.getText());
+
     }
 
     @Override
@@ -56,6 +57,5 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
         public void onClick(View v) {
 
         }
-
     }
 }

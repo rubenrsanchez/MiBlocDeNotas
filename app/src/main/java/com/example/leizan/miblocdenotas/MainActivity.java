@@ -1,6 +1,9 @@
 package com.example.leizan.miblocdenotas;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -29,13 +32,20 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, ActivityNota2.class);
+                startActivityForResult(intent, 1);
+
+
             }
         });
 
         notasList = new ArrayList<>();
         categoriasList = new ArrayList<>();
+
+        mainRV = findViewById(R.id.rvMain);
+        adapter = new NotasAdapter(this, notasList, categoriasList);
+        mainRV.setAdapter(adapter);
+        mainRV.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
@@ -43,12 +53,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        mainRV = findViewById(R.id.rvMain);
-        adapter = new NotasAdapter(this, notasList, categoriasList);
-        mainRV.setAdapter(adapter);
-        mainRV.setLayoutManager(new LinearLayoutManager(this));
-
         return true;
     }
 
@@ -65,5 +69,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                if(resultCode == Activity.RESULT_OK){
+                    //notasList = (ArrayList<Nota>)data.getExtras().getSerializable("notas");
+                    notasList.add((Nota)data.getSerializableExtra("nota"));
+                    adapter.notifyDataSetChanged();
+                }
+                break;
+
+        }
     }
 }
