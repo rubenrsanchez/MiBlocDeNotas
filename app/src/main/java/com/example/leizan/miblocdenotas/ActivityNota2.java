@@ -35,8 +35,8 @@ public class ActivityNota2 extends AppCompatActivity {
             public void onClick(View v){
                 // aqui crea una nota y la devuelve al arraylist del mainactivity
                 Intent intent = new Intent(ActivityNota2.this, MainActivity.class);
-                intent.putExtra("nota" , new Nota(titulo.getText().toString(), text.getText().toString(), new CategoriaNota(1,"hola", 2)));
-                setResult(RESULT_OK, intent);
+                intent.putExtra("nota" , new Nota(titulo.getText().toString(), text.getText().toString(), new CategoriaNota(1,"hola", 2))); // añade la nota creada por el usuario al intent
+                setResult(RESULT_OK, intent); // envia el intent al mainActivity con la nota que hemos creado
                 finish();
             }
         });
