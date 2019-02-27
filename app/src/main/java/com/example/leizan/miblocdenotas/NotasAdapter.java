@@ -1,9 +1,12 @@
 package com.example.leizan.miblocdenotas;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +43,7 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
         holder.titulo.setText(currentNota.getTitulo());
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         holder.dateTime.setText(sdf.format(currentNota.getCalendar().getTime()));
-
-
-    }
+     }
 
     @Override
     public int getItemCount() {
@@ -59,13 +60,21 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
             super(itemView);
             titulo = itemView.findViewById(R.id.TVNota);
             dateTime = itemView.findViewById(R.id.tv_dateTime);
-            
+
             //titulo.setBackgroundColor(notas.get(getAdapterPosition()).getCategoria().getColor());
             this.adapter = adapter;
+            itemView.setOnClickListener(this);
         }
         @Override
         public void onClick(View v) {
             // onClick de cada cardView, la idea es que cuando se haga click se abra 'ActivityNota2' con la info de la nota cargada para poder editarla
+            Log.i("info", "click en el cardview");
+            int posicionElemento = getLayoutPosition();
+            Intent intent = new Intent(v.getContext(), ActivityNota2.class);
+            intent.putExtra("notaEditar", notas.get(posicionElemento));
+            intent.putExtra("posicion", posicionElemento);
+            ((Activity)v.getContext()).startActivityForResult(intent, 2);
         }
+
     }
 }

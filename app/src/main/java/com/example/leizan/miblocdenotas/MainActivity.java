@@ -82,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged(); // avisa al adapter que se ha añadido una nota nueva al arrayList para actualizar la vista
                 }
                 break;
+            case 2:
+                if(resultCode == Activity.RESULT_OK){
+                    Nota n = (Nota)data.getSerializableExtra("nota");
+                    notasList.set(data.getIntExtra("posicion", -1), n);
+                    adapter.notifyDataSetChanged(); // avisa al adapter que se ha añadido una nota nueva al arrayList para actualizar la vista
+                }
+                break;
 
         }
     }
