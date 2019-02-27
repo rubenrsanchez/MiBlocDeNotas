@@ -6,11 +6,14 @@ public class CategoriaNota implements Serializable {
     private int id;
     private String nombre;
     private int color;
+    private static int idsuma=0;
 
-    public CategoriaNota(int id, String nombre, int color){
-        this.id = id;
+    public CategoriaNota( String nombre, int color){
+
         this.nombre = nombre;
         this.color = color;
+        idsuma ++;
+        id=idsuma;
     }
 
     public int getId() {
