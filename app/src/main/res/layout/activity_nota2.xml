@@ -13,25 +13,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:hint="@string/editText_tituloNota_hint"
+        android:inputType="textCapSentences"
         android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/button_categoria"
-        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_categoria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Categoria"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText_titulo"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_guardar"
@@ -40,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Guardar"
+        android:text="@string/boton_guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -51,7 +38,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Cancelar"
+        android:text="@string/boton_cancelar"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -69,10 +56,22 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:gravity="top"
-        android:inputType="textMultiLine"
+        android:hint="@string/editText_textNota_hint"
+        android:inputType="textCapSentences|textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/button_guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_titulo" />
+
+    <Spinner
+        android:id="@+id/spinner_categorias"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText_titulo"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

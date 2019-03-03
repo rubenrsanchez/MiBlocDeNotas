@@ -1,4 +1,29 @@
 <resources>
-    <string name="app_name">MiBlocDeNotas</string>
-    <string name="action_settings">Categorías</string>
+    <string name="app_name">Bloc de notas</string>
+    <string name="action_settings">Añadir categoría</string>
+    <string-array name="labels_array">
+        <item>Rojo</item>
+        <item>Azul</item>
+        <item>Amarillo</item>
+        <item>Verde</item>
+        <item>Rosa</item>
+        <item>Violeta</item>
+        <item>Naranja</item>
+    </string-array>
+    <string-array name="coloresHexadecimal">
+        <item id="0" name="rojo">#ff6666</item>
+        <item id="1" name="azul">#80b3ff</item>
+        <item id="2" name="verde">#80ff80</item>
+        <item id="3" name="amarillo">#ffff80</item>
+        <item id="4" name="rosa">#ff80bf</item>
+        <item id="5" name="violeta">#df80ff</item>
+        <item id="6" name="naranja">#ffb380</item>
+    </string-array>
+    <string name="boton_guardar">Guardar</string>
+    <string name="boton_cancelar">Cancelar</string>
+    <string name="textView_nuevaCategoria_hint">Nombre de la categoría...</string>
+    <string name="title_nuevaCategoriaActivity">Crear categoría</string>
+    <string name="title_ActivityNota2">Crear nota</string>
+    <string name="editText_textNota_hint">Escribe aquí tu nota...</string>
+    <string name="editText_tituloNota_hint">Título de la nota...</string>
 </resources>

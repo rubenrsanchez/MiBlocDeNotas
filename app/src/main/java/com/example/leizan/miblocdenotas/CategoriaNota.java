@@ -5,15 +5,14 @@ import java.io.Serializable;
 public class CategoriaNota implements Serializable {
     private int id;
     private String nombre;
-    private int color;
-    private static int idsuma=0;
+    private String color;
+    public static int idSuma = 0;
 
-    public CategoriaNota( String nombre, int color){
-
+    public CategoriaNota(String nombre, String color){
         this.nombre = nombre;
         this.color = color;
-        idsuma ++;
-        id=idsuma;
+        id = idSuma;
+        idSuma++;
     }
 
     public int getId() {
@@ -24,7 +23,7 @@ public class CategoriaNota implements Serializable {
         return nombre;
     }
 
-    public int getColor(){
+    public String getColor(){
         return color;
     }
 
@@ -36,7 +35,7 @@ public class CategoriaNota implements Serializable {
         this.nombre = nombre;
     }
 
-    public void setColor(int color){
+    public void setColor(String color){
         this.color = color;
     }
 }

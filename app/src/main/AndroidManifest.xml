@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".ActivityNota" />
         <activity android:name=".ActivityNota2"></activity>
+        <activity android:name=".Nueva_categoria"></activity>
     </application>
 
 </manifest>

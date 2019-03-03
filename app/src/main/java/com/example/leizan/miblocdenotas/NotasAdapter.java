@@ -3,6 +3,7 @@ package com.example.leizan.miblocdenotas;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -39,10 +41,11 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
     public void onBindViewHolder(NotasAdapter.NotasViewHolder holder, int i) {
         // en esta funcion se define la informacion de cada cardView
         Nota currentNota = notas.get(i);
-        // Add the data to the view holder.
-        holder.titulo.setText(currentNota.getTitulo());
+        // Añade la información al viewHolder
+        holder.titulo.setText(currentNota.getTitulo()); //titulo de la currentNota
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        holder.dateTime.setText(sdf.format(currentNota.getCalendar().getTime()));
+        holder.dateTime.setText(sdf.format(currentNota.getCalendar().getTime())); //hora de creación de la currentNota
+        holder.layout.setBackgroundColor(Color.parseColor(notas.get(i).getCategoria().getColor())); //color de la currentNota
      }
 
     @Override
@@ -52,16 +55,16 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
 
     class NotasViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public final TextView titulo;
-        public final TextView dateTime;
-        final NotasAdapter adapter;
+        public TextView titulo;
+        public TextView dateTime;
+        public NotasAdapter adapter;
+        public RelativeLayout layout;
 
         public NotasViewHolder(View itemView, NotasAdapter adapter){ // se instancian los elementos de cada cardView
             super(itemView);
             titulo = itemView.findViewById(R.id.TVNota);
             dateTime = itemView.findViewById(R.id.tv_dateTime);
-
-            //titulo.setBackgroundColor(notas.get(getAdapterPosition()).getCategoria().getColor());
+            layout = itemView.findViewById(R.id.relativeLayout_nota);
             this.adapter = adapter;
             itemView.setOnClickListener(this);
         }
@@ -73,8 +76,8 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
             Intent intent = new Intent(v.getContext(), ActivityNota2.class);
             intent.putExtra("notaEditar", notas.get(posicionElemento));
             intent.putExtra("posicion", posicionElemento);
+            intent.putExtra("categoriasList", categorias);
             ((Activity)v.getContext()).startActivityForResult(intent, 2);
         }
-
     }
 }
