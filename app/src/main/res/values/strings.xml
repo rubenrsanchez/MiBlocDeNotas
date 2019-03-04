@@ -26,4 +26,5 @@
     <string name="title_ActivityNota2">Crear nota</string>
     <string name="editText_textNota_hint">Escribe aquí tu nota...</string>
     <string name="editText_tituloNota_hint">Título de la nota...</string>
+    <string name="action_filtrar">Filtrar</string>
 </resources>

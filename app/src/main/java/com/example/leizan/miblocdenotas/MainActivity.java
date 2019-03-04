@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -70,9 +72,14 @@ public class MainActivity extends AppCompatActivity {
                                                 // La segunda activity tiene que devolver si o sí un objeto CategoriaNota
             Intent intent = new Intent(this, Nueva_categoria.class);
             startActivityForResult(intent, 3);
+        } else if (id == R.id.action_filtrarNotas){
+            Log.e("click", "click en el filtro");
+
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //

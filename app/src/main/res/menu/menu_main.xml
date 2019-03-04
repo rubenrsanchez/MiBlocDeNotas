@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_filtrarNotas"
+        android:title="@string/action_filtrar"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_filtrar" />
 </menu>
