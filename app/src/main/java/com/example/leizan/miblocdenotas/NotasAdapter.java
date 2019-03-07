@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -61,6 +62,7 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
         public TextView dateTime;
         public NotasAdapter adapter;
         public RelativeLayout layout;
+        public Button botonEliminar;
 
         public NotasViewHolder(View itemView, NotasAdapter adapter){ // se instancian los elementos de cada cardView
             super(itemView);
@@ -68,6 +70,15 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotasViewHol
             dateTime = itemView.findViewById(R.id.tv_dateTime);
             layout = itemView.findViewById(R.id.relativeLayout_nota);
             this.adapter = adapter;
+            botonEliminar = itemView.findViewById(R.id.btEliminar);
+            botonEliminar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int posicionNota = getLayoutPosition();
+                    notas.remove(posicionNota);
+                    notifyDataSetChanged();
+                }
+            });
             itemView.setOnClickListener(this);
         }
         @Override
